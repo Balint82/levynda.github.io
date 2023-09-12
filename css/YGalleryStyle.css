@@ -1,0 +1,242 @@
+main {
+	background-image: url("../images/galleryBck3.jpg");
+
+}
+
+.jumbo {
+    color: whitesmoke;
+    font-family: 'Cinzel Decorative', cursive;
+    text-align: center;
+    text-shadow: 4px 2px 2px rgb(0, 0, 0);  
+    font-weight:bolder; 
+    font-size: x-large;
+    
+}
+
+
+
+nav {
+    background-color: #444444;
+    padding: 12px;
+}
+
+.logo {
+	font-family: 'Cinzel Decorative', cursive;
+	color:#FFFFFF;
+	display: none;
+}
+
+.menu {
+	text-align: center;
+	margin: 0 auto;
+}
+
+nav .hamburger {
+    cursor: pointer;
+    display: none;
+    float: right;
+    padding: 12px;
+    margin-top: 12px;
+	margin-bottom: 12px;
+	margin-left: 88%;
+    background: #111111;
+	z-index: 3;
+	
+    
+}
+
+
+nav .icon-bar {
+    background: #ffffff;
+	display: block;
+    width: 22px;
+    height: 2px;
+}
+
+
+/* az összes olyan icon bar class elem, amely icon bar class elem után következik - ez teszi be a közöket a legfelső így a logika szerint nem*/
+
+nav .icon-bar+ .icon-bar {
+    margin-top: 4px;
+}
+
+
+
+nav .menu ul li {
+    float: left;
+    list-style: none;
+    border-left: 2px solid #AAAAAA; /* vonalak a menüpontok között*/
+	
+}
+
+/* az első menüpont előtt ne legyen vonal*/
+nav .menu ul li:first-child {
+    border: 0;
+}
+
+nav a {
+    color: #FFFFFF;
+    padding: 12px 20px;
+    transition: background-color .7s;
+	font-style: italic;
+	font-size: larger;
+}
+
+nav a:hover {
+    background-color: black;
+    transition: background-color .7s;
+    text-decoration: none;
+    opacity: 0.5;
+    color: aliceblue;
+}
+
+/*Eltűnteti a menüt 600px alatt */
+
+@media (max-width: 600px) {
+    nav .menu {z-index: 2;
+		background-color: #444444;
+		text-align: left;
+			}
+    nav .hamburger {display: block;}
+	.jumbojet {display: none;}
+	
+	#indexBody {
+		height: 100%;
+	}
+	
+	.logo {
+		display: inline-flex;
+	}
+	.menu {
+		position: absolute;
+		top: 0;
+		height: 300;
+		color: #edddd4;
+		opacity: 0;
+		padding-top: 3.8rem;
+		transition: opacity 0.3s;
+		border-radius: 5%;
+	}
+
+	nav a {
+		color: #edddd4;
+		text-decoration: none;
+		font-weight: bold;
+	}
+
+	nav .menu ul li {
+		float: none;
+		margin: 1rem;
+		border: 0;
+		
+	}
+
+	.menu-active {
+		opacity: 1;
+		transition: opacity 0.3s;
+	}
+
+	#indexMain {
+		padding-top: 30%;
+		padding-bottom: 70%;
+	}
+	
+}
+
+/*Galéria*/
+
+.container {
+	width: 100%;
+	display: grid;
+	grid-auto-flow: dense;
+	grid-template: "1fr 1fr 1fr 1fr 1fr" 33.33vh
+					"1fr 1fr 1fr 1fr 1fr" 33.33vh
+					"1fr 1fr 1fr 1fr 1fr" 33.33vh;
+	grid-gap: 0px;
+}
+
+.container .box {
+	position: relative;
+	background: #ccc;
+	box-shadow: 4px 4px 4px #333333;
+	
+}
+
+.container .box.a {
+	grid-row: span 2;
+}
+
+.container .box.h {
+	grid-column: span 1;
+}
+
+.container .box.j {
+	grid-column: span 2;
+}
+
+.container .box.k {
+	grid-column: span 3;
+}
+.container .box img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border: 1px rgb(0, 0, 0) solid;
+}
+
+@media (max-width: 768px) {
+	.container {
+		grid-template: "1fr 1fr "  250px
+						"1fr 1fr" 250px
+						"1fr 1fr" 250px
+						"1fr 1fr" 250px 
+						"1fr 1fr" 250px;
+	}
+}
+
+/*hover effect*/
+
+.image-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	color: #ffffff;
+	display: flex;
+	font-family: 'Quicksand', sans-serif;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.image-overlay:hover {
+	opacity: 1;
+}
+
+.image-overlay > * {
+	transform: translateY(20px);
+	transition: transform 0.25s;
+}
+
+.image-overlay:hover > * {
+	transform: translateY(0);
+}
+
+.image-overlay--blur {
+	backdrop-filter: blur(10px);
+}
+
+
+.image-title {
+	font-size: 1em;
+	margin-top: 1em;
+
+}
+
